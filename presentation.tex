@@ -333,40 +333,66 @@
 
   \section[Status]{Den Status der Repository anzeigen}
 
-  \begin{frame}{Status}
-        \begin{itemize}[<+->]
-          \item Keinen überblick über Dateien, die schon committed sind
-          \item git weiß es
-        \end{itemize}
-        \onslide<+->{
-          \begin{block}{Command}
-            \texttt{git status}
-          \end{block}
-        }
-  \end{frame}
+    \begin{frame}{Status}
+          \begin{itemize}[<+->]
+            \item Keinen überblick über Dateien, die schon committed sind
+            \item git weiß es
+          \end{itemize}
+          \onslide<+->{
+            \begin{block}{Command}
+              \texttt{git status}
+            \end{block}
+          }
+    \end{frame}
 
-  \begin{frame}{Log - Die Historie}
-        \begin{itemize}[<+->]
-          \item Keinen überblick über Dateien, die schon committed sind
-          \item git weiß es
-        \end{itemize}
-        \onslide<+->{
-          \begin{block}{Command}
-            \texttt{git log}
-          \end{block}
-        }
-        \onslide<+->{
-          \begin{block}{Command}
-            \texttt {
-              commit c8765b34740f5a9bc0bc0be531474d32ce3548b0 ({\color{blue}HEAD} -> {\color{green}master}) \\
-              Author:     TheDome <TheDome@users.noreply.github.com>               \\
-              Date:       Wed May 8 23:04:40 2019 +0200                            \\
-              \vskip 1em
-              Add branches
-            }
-          \end{block}
-        }
-  \end{frame}
+    \begin{frame}{Log - Die Historie}
+          \begin{itemize}[<+->]
+            \item Keinen überblick über Dateien, die schon committed sind
+            \item git weiß es
+          \end{itemize}
+          \onslide<+->{
+            \begin{block}{Command}
+              \texttt{git log}
+            \end{block}
+          }
+          \onslide<+->{
+            \begin{block}{Command}
+              \texttt {
+                commit c8765b34740f5a9bc0bc0be531474d32ce3548b0 ({\color{blue}HEAD} -> {\color{green}master}) \\
+                Author:     TheDome <TheDome@users.noreply.github.com>               \\
+                Date:       Wed May 8 23:04:40 2019 +0200                            \\
+                \vskip 1em
+                Add branches
+              }
+            \end{block}
+          }
+    \end{frame}
+
+  \section[Teilen]{Teilen von Arbeit}
+
+    \begin{frame}{push}
+      \begin{columns}
+        \column{0.5\textwidth}
+          \begin{itemize}[<+->]
+            \item Lokal gespeichert im Baum
+            \item Mit mehreren Teilen
+            \item<.-> Auf einen Server hosten
+            \item \textit{GitHub, GitLab, Bitbucket}
+          \end{itemize}
+          \onslide<+->{
+            \begin{block}{Command}
+              \texttt{git push}
+            \end{block}
+          }
+        \column{0.4\textwidth}
+          \onslide<+->{
+            \begin{figure}
+              \includegraphics[width=.9\columnwidth]{centralized-workflow}
+              \caption{Zentral gehostete git Repository}
+            \end{figure}
+          }
+      \end{columns}
+    \end{frame}
 
 
 \end{document}
