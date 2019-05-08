@@ -210,9 +210,20 @@
     \end{frame}
 
     \begin{frame}{Differences}
+      \begin{itemize}[<+->]
+        \item Änderungen gar nicht mehr bewusst
+        \item Durchsuchen
+        \item Wissen, wann Änderung gemacht wurde
+      \end{itemize}
+      \begin{block}{Command}
+        \texttt{git diff "<file">}
+      \end{block}
+    \end{frame}
+
+    \begin{frame}{Differences}
       \begin{columns}
-        \column{0.6\textwidth}
-          \begin{itemize}[<+->]
+        \column{0.4\textwidth}
+          \begin{itemize}
             \item Änderungen gar nicht mehr bewusst
             \item Durchsuchen
             \item Wissen, wann Änderung gemacht wurde
@@ -220,11 +231,20 @@
           \begin{block}{Command}
             \texttt{git diff "<file">}
           \end{block}
-
-        \column{0.4\textwidth}
-          \begin{block}{Output eines diff}
-
-          \end{block}
+        \column{0.5\textwidth}
+          \vspace{20pt}
+            \begin{block}{Output}
+              \texttt{
+                diff --git a/presentation.pdf b/presentation.pdf                \\
+                index ab4f937..8df41aa 100644                                   \\
+                Binary files a/presentation.pdf and b/presentation.pdf differ   \\
+                diff --git a/presentation.tex b/presentation.tex                \\
+                index c48b0c4..709be6b 100644                                   \\
+                {\color{red}--- a/presentation.tex}                             \\
+                {\color{green}+++ b/presentation.tex}                           \\
+                @@ -222,7 +222,7 @@
+              }
+            \end{block}
       \end{columns}
     \end{frame}
 
@@ -332,7 +352,18 @@
         \end{itemize}
         \onslide<+->{
           \begin{block}{Command}
-            \texttt{git status}
+            \texttt{git log}
+          \end{block}
+        }
+        \onslide<+->{
+          \begin{block}{Command}
+            \texttt {
+              commit c8765b34740f5a9bc0bc0be531474d32ce3548b0 ({\color{blue}HEAD} -> {\color{green}master}) \\
+              Author:     TheDome <TheDome@users.noreply.github.com>               \\
+              Date:       Wed May 8 23:04:40 2019 +0200                            \\
+              \vskip 1em
+              Add branches
+            }
           \end{block}
         }
   \end{frame}
