@@ -1,0 +1,9 @@
+*.fls
+*.aux
+*.log
+*.out
+*.gz
+*.snm
+*.toc
+*.nav
+presentation-cache.yaml

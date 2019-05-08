@@ -1,0 +1,137 @@
+%% LaTeX-Beamer template for KIT design
+%% Widescreen
+%% by Erik Burger, Christian Hammer, David Dauer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.2 for Beamer v3.30
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\usepackage{templates/beamerthemekitbase}
+
+\usepackage{geometry}
+\geometry{papersize={15.36cm,9.6cm}}
+\setlength{\unitlength}{1mm}
+
+\setbeamertemplate{title page}
+{
+	\thispagestyle{empty}
+
+	%middle block with name of institute
+	\begin{textblock*}{\paperwidth}(6mm,47mm)
+		\tiny\uppercase\expandafter{\insertinstitute}
+	\end{textblock*}
+
+	%elements on title page
+
+	%KIT logo
+	\begin{textblock*}{24mm}(6mm,5mm)
+		\includegraphics[height=16mm]{logos/AES_Logo_Blaugrau}
+	\end{textblock*}
+
+	% institute logo
+	% \begin{textblock*}{20mm}(127mm,4mm)
+	% 	\includegraphics[width=20mm]{logos/\@titlelogo}
+	% \end{textblock*}
+
+	%title
+	\begin{textblock*}{143mm}(6mm,19mm)
+		\begin{beamercolorbox}[wd=118mm,ht=14mm,dp=3mm]{white}%
+			\Large\textbf{\inserttitle}
+		\end{beamercolorbox}
+	\end{textblock*}
+
+	%subtitle
+	\begin{textblock*}{143mm}(6mm,36mm)
+		\scriptsize \insertsubtitle
+	\end{textblock*}
+
+	%author
+	\begin{textblock*}{143mm}(6mm,40mm)
+		\scriptsize \insertauthor~\textbar~\insertshortdate
+	\end{textblock*}
+
+}
+
+%background for pages
+%CH: for plain frames
+\newlength{\kitbottom}
+\usebackgroundtemplate{
+	\setlength{\kitbottom}{\ifbeamer@plainframe1mm\else4mm\fi}%
+	\begin{pgfpicture}{0mm}{0mm}{\paperwidth}{\paperheight}
+
+		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+		\pgfpathmoveto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}
+		\pgfpathlineto{\pgfpoint{1mm}{\kitbottom}}
+		\pgfpathlineto{\pgfpoint{1mm}{\paperheight-1mm}}}
+
+		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+		\pgfpathmoveto{\pgfpoint{1mm}{\paperheight-1mm}}
+		\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\paperheight-1mm}}
+		\pgfpathlineto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}}
+
+		\color{white}
+		\pgfusepath{fill}
+
+	\end{pgfpicture}%
+}
+
+%frametitle
+\setbeamertemplate{frametitle}
+{
+	\vspace{2mm} %\hspace*{-4mm}
+	\vbox{\hsize=9cm\bfseries\insertframetitle}
+
+	\begin{textblock*}{15mm}(123.6mm,9mm)
+		\includegraphics[width=24mm]{logos/AES_Logo_Blaugrau}
+	\end{textblock*}
+
+}
+
+\defbeamertemplate*{headline}{miniframes theme no subsection}
+{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+%footer
+\setbeamertemplate{footline}
+{
+
+	\hbox{
+		\begin{beamercolorbox}[wd=0.7\textwidth,ht=2.2mm,dp=2mm,left,leftskip=1.3em]{author in head/foot}%
+			\usebeamerfont{author in head/foot}%
+			\insertshortauthor\hspace{2.5pt}--\hspace{2.5pt}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=0.2\textwidth,ht=2.2mm,dp=2mm,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}%
+			\insertshortdate
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=0.05\paperwidth,ht=2.2mm,dp=2mm,right]{date in head/foot}%
+			\usebeamerfont{date in head/foot}%
+			\insertframenumber{}/\inserttotalframenumber
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=0.05\paperwidth,ht=2.2mm,dp=2mm,right]{date in head/foot}%
+			
+		\end{beamercolorbox}%
+	}
+	%\vskip 1.75mm
+}
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\setbeamersize{sidebar width left=0pt} % Remove that ugly sidebar
+
+% \setbeamerfont{title in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{10}{12}}}
+% \setbeamerfont{section in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{9}{12}}}
+% \setbeamerfont{subsection in sidebar}{family=\sffamily,series=\mdseries,size={\fontsize{8}{12}}}
+%
