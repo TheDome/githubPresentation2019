@@ -141,7 +141,7 @@
       \end{columns}
     \end{frame}
 
-  \section{Einrichten einer Repository}
+  \section[Einrichtung]{Einrichten einer Repository}
 
     \begin{frame}{Clone}
       \framesubtitle{Eine Repository aus dem Internet laden}
@@ -174,7 +174,7 @@
       \end{block}
     \end{frame}
 
-    \section{Änderungen Speichern}
+    \section[Ändern]{Änderungen Speichern}
 
     \begin{frame}{Add}
       \begin{itemize}[<+->]
@@ -209,12 +209,32 @@
       \end{block}
     \end{frame}
 
-  \section{Zusammenführen der Arbeit}
+    \begin{frame}{Differences}
+      \begin{columns}
+        \column{0.6\textwidth}
+          \begin{itemize}[<+->]
+            \item Änderungen gar nicht mehr bewusst
+            \item Durchsuchen
+            \item Wissen, wann Änderung gemacht wurde
+          \end{itemize}
+          \begin{block}{Command}
+            \texttt{git diff "<file">}
+          \end{block}
+
+        \column{0.4\textwidth}
+          \begin{block}{Output eines diff}
+
+          \end{block}
+      \end{columns}
+    \end{frame}
+
+  \section[Merge]{Zusammenführen der Arbeit}
 
 
     \begin{frame}{Branches}
       \begin{itemize}
-        \item<+> Möglichkeit, verschiedene \textbf{Versionen} zu haben
+        \item<+-> \textit{Zweige}
+        \item<+-> Möglichkeit, verschiedene \textbf{Versionen} zu haben
       \end{itemize}
       \begin{columns}
         \onslide<+->{
@@ -229,20 +249,93 @@
       \tiny{Bilder von \url{git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell}}
     \end{frame}
 
-    \begin{frame}{Branches}
-
-      \begin{columns}
-        \onslide<+->{
-            \column{0.5\textwidth}
-              \includegraphics[width=0.9\columnwidth]{after-branch}
-        }
-        \onslide<+->{
-            \column{0.5\textwidth}
-              \includegraphics[width=0.9\columnwidth]{create-branch}
-        }
-      \end{columns}
-    \tiny{Bilder von \url{git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell}}
+    \begin{frame}{Branches anzeigen}
+      \begin{itemize}
+        \item<+-> Anzeigen aller Branches
+      \end{itemize}
+      \onslide<+->{
+        \begin{block}{Command}
+          \texttt{git branch}
+        \end{block}
+      }
+      \onslide<+->{
+        \begin{block}{Ausgabe}
+          \texttt{\$ git branch \\ % Show all branches later
+              \onslide<+->{ iss53 \\
+                * master \\
+                  testing
+              }
+          }
+        \end{block}
+      }
     \end{frame}
+
+    \begin{frame}{Branches Zusammenführen}
+      \begin{columns}
+        \column{0.5\textwidth}
+          \begin{itemize}[<+->]
+            \item Verschiedene Versionen
+            \item[$\rightarrow$] Man will auf eine Version
+          \end{itemize}
+
+        \column{0.5\textwidth}
+          \onslide<.->{
+            \begin{figure}
+              \includegraphics[height=0.68\textheight,keepaspectratio=true]{branch-different}
+              \caption{Verschiedene Branches \tiny{\url{git-scm.com/book/en/v2/Git-Branching-Branching-Workflows}, 08.05.2019}}
+            \end{figure}
+          }
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}{Merge}
+      \begin{columns}
+        \column{0.6\textwidth}
+          \begin{itemize}[<+->]
+            \item Branches Zusammenführen
+            \item Manche haben Konflikte
+            \item[$\Rightarrow$] Selbst lösen
+          \end{itemize}
+          \onslide<+->{
+            \begin{block}{Command}
+              \texttt{git merge [<commit>...]}
+            \end{block}
+          }
+        \column{0.4\textwidth}
+          \onslide<1->{
+            \begin{figure}
+              \includegraphics[height=0.68\textheight,keepaspectratio=true]{branch-different}
+              \caption{Verschiedene Branches \tiny\url{git-scm.com/book/en/v2/Git-Branching-Branching-Workflows}, 08.05.2019}
+            \end{figure}
+          }
+      \end{columns}
+    \end{frame}
+
+  \section[Status]{Den Status der Repository anzeigen}
+
+  \begin{frame}{Status}
+        \begin{itemize}[<+->]
+          \item Keinen überblick über Dateien, die schon committed sind
+          \item git weiß es
+        \end{itemize}
+        \onslide<+->{
+          \begin{block}{Command}
+            \texttt{git status}
+          \end{block}
+        }
+  \end{frame}
+
+  \begin{frame}{Log - Die Historie}
+        \begin{itemize}[<+->]
+          \item Keinen überblick über Dateien, die schon committed sind
+          \item git weiß es
+        \end{itemize}
+        \onslide<+->{
+          \begin{block}{Command}
+            \texttt{git status}
+          \end{block}
+        }
+  \end{frame}
 
 
 \end{document}
