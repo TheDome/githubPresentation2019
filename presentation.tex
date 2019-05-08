@@ -10,7 +10,7 @@
 %% Problems, bugs and comments to
 %% burger@kit.edu
 
-\documentclass[aspectratio=169]{beamer}
+\documentclass{beamer}
 
 %% SLIDE FORMAT
 
@@ -98,7 +98,7 @@
   \begin{frame}{Wie arbeitet man im Team mit eigenen Computern}
     \begin{itemize}[<+->]
       \item Synchronisation?
-      \item[$\Rightarrow$] Fehleranfällig \pause mehrere arbeiten gleichzeitig?
+      \item[$\Rightarrow$] Fehleranfällig oder mehrere arbeiten gleichzeitig?
       \item[$\Rightarrow$] GIT löst Problem
     \end{itemize}
   \end{frame}
@@ -107,7 +107,7 @@
       \begin{columns}
         \column{0.6\textwidth}
 
-          \begin{itemize}
+          \begin{itemize}[<+->]
             \item Verschiedene Versionen
             \item Jeder arbeitet an seinen \textit{Versionen} der Dateien
             \item \textbf{Commit} gibt die Information weiter
@@ -117,25 +117,132 @@
         \column{0.4\textwidth}
           \begin{figure}
             \includegraphics[width=0.9\columnwidth]{version-control-centralized}
-            \caption{Versionskontrolle mit zentralem VCS Sever \\
-            \tiny{\url{https://git-scm.com/book/en/v2/images/centralized.png}; Abgerufen am 08.05.2018}}
+            \caption{
+              Versionskontrolle mit zentralem VCS Sever
+              \tiny{
+                \url{git-scm.com/book/en/v2/images/centralized.png}; 08.05.2018
+              }
+            }
           \end{figure}
       \end{columns}
   \end{frame}
 
   \section{Git als VCS}
 
-  \begin{frame}{Git}
-    \begin{columns}
-      \column{0.7\textwidth}
-        \begin{itemize}
-          \item Eine Möglichkeit unter vielen (\textit{SVN, Git, Mercurial...})
-          \item Entwickelt von Linus Torwalds für den \textbf{Linux Kernel}
-        \end{itemize}
-      \column{0.3\textwidth}
-        \includegraphics[width=0.9\columnwidth]{git}
-    \end{columns}
-  \end{frame}
+    \begin{frame}{Git}
+      \begin{columns}
+        \column{0.7\textwidth}
+          \begin{itemize}[<+->]
+            \item Eine Möglichkeit unter vielen (\textit{SVN, Git, Mercurial...})
+            \item Entwickelt von Linus Torwalds für den \textbf{Linux Kernel}
+          \end{itemize}
+        \column{0.3\textwidth}
+          \includegraphics[width=0.9\columnwidth]{git}
+      \end{columns}
+    \end{frame}
+
+  \section{Einrichten einer Repository}
+
+    \begin{frame}{Clone}
+      \framesubtitle{Eine Repository aus dem Internet laden}
+      \begin{itemize}
+        \item Repository laden
+        \item Verschiedene Anbieter Möglich \begin{itemize}
+                                              \item GitLab
+                                              \item GitHub
+                                              \item Bitbucket
+                                            \end{itemize}
+      \end{itemize}
+      \onslide<+>{
+        \begin{block}{Command}
+          \texttt{git clone <url>}
+        \end{block}
+      }
+      \onslide<+>{
+        \begin{block}{Eine Repository Clonen}
+          \url{https://github.com/TheDome/githubPresentation2019.git}
+        \end{block}
+      }
+    \end{frame}
+
+    \begin{frame}{Init}
+      \begin{itemize}
+        \item Repository erstellen
+      \end{itemize}
+      \begin{block}{Command}
+        \texttt{git init}
+      \end{block}
+    \end{frame}
+
+    \section{Änderungen Speichern}
+
+    \begin{frame}{Add}
+      \begin{itemize}[<+->]
+        \item Dateien \textit{Stagen}
+        \item[$\rightarrow$] Auf commit vorbereiten
+        \item Mehrere Dateien nacheinander für einen Commit vorbereiten
+      \end{itemize}
+      \begin{block}{Command}
+        \texttt{git add files..}
+      \end{block}
+    \end{frame}
+
+    \begin{frame}{Commit}
+      \begin{itemize}
+        \item Hinzufügen von Änderungen
+        \item Lädt Änderung direkt in den GIT Baum
+      \end{itemize}
+      \begin{block}{Command}
+        \texttt{git commit -m "<Message"> files..}
+      \end{block}
+    \end{frame}
+
+    \begin{frame}{Remove}
+      \begin{itemize}
+        \item Dateien mit GIT löschen
+        \item<+-> Eigentlich auch durch löschen und commit möglich
+        \item<.-> Zeichnet direkt in dem Versionsbaum auf
+        \item<+-|@alert> [-r] Nimmt hierbei \textbf{alle} Dateien in einem Verzeichnis
+      \end{itemize}
+      \begin{block}{Command}
+        \texttt{git rm [-r] [--] "<file">...}
+      \end{block}
+    \end{frame}
+
+  \section{Zusammenführen der Arbeit}
+
+
+    \begin{frame}{Branches}
+      \begin{itemize}
+        \item<+> Möglichkeit, verschiedene \textbf{Versionen} zu haben
+      \end{itemize}
+      \begin{columns}
+        \onslide<+->{
+            \column{0.5\textwidth}
+              \includegraphics[width=0.9\columnwidth]{before-branch}
+        }
+        \onslide<+->{
+            \column{0.5\textwidth}
+              \includegraphics[width=0.9\columnwidth]{create-branch}
+        }
+       \end{columns}
+      \tiny{Bilder von \url{git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell}}
+    \end{frame}
+
+    \begin{frame}{Branches}
+
+      \begin{columns}
+        \onslide<+->{
+            \column{0.5\textwidth}
+              \includegraphics[width=0.9\columnwidth]{after-branch}
+        }
+        \onslide<+->{
+            \column{0.5\textwidth}
+              \includegraphics[width=0.9\columnwidth]{create-branch}
+        }
+      \end{columns}
+    \tiny{Bilder von \url{git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell}}
+    \end{frame}
 
 
 \end{document}
