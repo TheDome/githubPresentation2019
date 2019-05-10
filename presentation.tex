@@ -10,7 +10,7 @@
 %% Problems, bugs and comments to
 %% burger@kit.edu
 
-\documentclass{beamer}
+\documentclass[xcolor=dvipsnames]{beamer}
 
 %% SLIDE FORMAT
 
@@ -183,17 +183,17 @@
         \item Mehrere Dateien nacheinander für einen Commit vorbereiten
       \end{itemize}
       \begin{block}{Command}
-        \texttt{git add files..}
+        \texttt{git add "<files..">}
       \end{block}
     \end{frame}
 
     \begin{frame}{Commit}
-      \begin{itemize}
+      \begin{itemize}[<+->]
         \item Hinzufügen von Änderungen
         \item Lädt Änderung direkt in den GIT Baum
       \end{itemize}
       \begin{block}{Command}
-        \texttt{git commit -m "<Message"> files..}
+        \texttt{git commit -m "<Message"> \onslide<+->{"<files..">}}
       \end{block}
     \end{frame}
 
@@ -358,7 +358,7 @@
           \onslide<+->{
             \begin{block}{Command}
               \texttt {
-                commit c8765b34740f5a9bc0bc0be531474d32ce3548b0 ({\color{blue}HEAD} -> {\color{green}master}) \\
+                {\color{Dandelion}commit c8765b34740f5a9bc0bc0be531474d32ce3548b0} ({\color{SkyBlue}HEAD} -> {\color{green}master}) \\
                 Author:     TheDome <TheDome@users.noreply.github.com>               \\
                 Date:       Wed May 8 23:04:40 2019 +0200                            \\
                 \vskip 1em
