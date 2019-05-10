@@ -61,13 +61,15 @@
 %CH: for plain frames
 \newlength{\kitbottom}
 \usebackgroundtemplate{
-	\setlength{\kitbottom}{\ifbeamer@plainframe1mm\else4mm\fi}%
-	\begin{pgfpicture}{0mm}{0mm}{\paperwidth}{\paperheight}
+	\setlength{\kitbottom}{\ifbeamer@plainframe1mm\else11mm\fi}%
+	\begin{pgfpicture}{0mm}{0mm}{\paperwidth}{\ifbeamer@plainframe\paperheight\else\paperheight+6mm\fi}
 
-		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
+		{
+		\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
 		\pgfpathmoveto{\pgfpoint{\paperwidth-1mm}{\kitbottom}}
 		\pgfpathlineto{\pgfpoint{1mm}{\kitbottom}}
-		\pgfpathlineto{\pgfpoint{1mm}{\paperheight-1mm}}}
+		\pgfpathlineto{\pgfpoint{1mm}{\paperheight-1mm}}
+		}
 
 		{\pgfsetcornersarced{\pgfpoint{2mm}{2mm}}
 		\pgfpathmoveto{\pgfpoint{1mm}{\paperheight-1mm}}
@@ -85,6 +87,8 @@
 {
 	\vspace{2mm} %\hspace*{-4mm}
 	\vbox{\hsize=9cm\bfseries\insertframetitle}
+	\vspace{-2mm}
+	\vbox{\hsize=9cm\footnotesize{\color{lightgray} \insertframesubtitle}}
 
 	\begin{textblock*}{15mm}(123.6mm,9mm)
 		\includegraphics[width=24mm]{logos/AES_Logo_Blaugrau}
@@ -121,7 +125,7 @@
 			\insertframenumber{}/\inserttotalframenumber
 		\end{beamercolorbox}%
 		\begin{beamercolorbox}[wd=0.05\paperwidth,ht=2.2mm,dp=2mm,right]{date in head/foot}%
-			
+
 		\end{beamercolorbox}%
 	}
 	%\vskip 1.75mm

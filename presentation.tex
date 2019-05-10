@@ -95,7 +95,7 @@
 
   \section{Was ist GIT}
 
-  \begin{frame}{Wie arbeitet man im Team mit eigenen Computern}
+  \begin{frame}{Zusammenarbeit}{Wie arbeitet man im Team mit eigenen Computern}
     \begin{itemize}[<+->]
       \item Synchronisation?
       \item[$\Rightarrow$] Fehleranfällig oder mehrere arbeiten gleichzeitig?
@@ -222,7 +222,7 @@
 
     \begin{frame}{Differences}
       \begin{columns}
-        \column{0.4\textwidth}
+        \column{0.35\textwidth}
           \begin{itemize}
             \item Änderungen gar nicht mehr bewusst
             \item Durchsuchen
@@ -231,7 +231,7 @@
           \begin{block}{Command}
             \texttt{git diff "<file">}
           \end{block}
-        \column{0.5\textwidth}
+        \column{0.55\textwidth}
           \vspace{20pt}
             \begin{block}{Output}
               \texttt{
@@ -251,7 +251,7 @@
   \section[Merge]{Zusammenführen der Arbeit}
 
 
-    \begin{frame}{Branches}
+    \begin{frame}{Branches}{Die Zweige des Git Baumes}
       \begin{itemize}
         \item<+-> \textit{Zweige}
         \item<+-> Möglichkeit, verschiedene \textbf{Versionen} zu haben
@@ -308,9 +308,9 @@
       \end{columns}
     \end{frame}
 
-    \begin{frame}{Merge}
+    \begin{frame}{Merge}{Änderungen Zusammenführen}
       \begin{columns}
-        \column{0.6\textwidth}
+        \column{0.4\textwidth}
           \begin{itemize}[<+->]
             \item Branches Zusammenführen
             \item Manche haben Konflikte
@@ -321,10 +321,10 @@
               \texttt{git merge [<commit>...]}
             \end{block}
           }
-        \column{0.4\textwidth}
+        \column{0.6\textwidth}
           \onslide<1->{
             \begin{figure}
-              \includegraphics[height=0.68\textheight,keepaspectratio=true]{branch-different}
+              \includegraphics[width=0.9\columnwidth,keepaspectratio=true]{remote-branches-fetch}
               \caption{Verschiedene Branches \tiny\url{git-scm.com/book/en/v2/Git-Branching-Branching-Workflows}, 08.05.2019}
             \end{figure}
           }
@@ -345,7 +345,7 @@
           }
     \end{frame}
 
-    \begin{frame}{Log - Die Historie}
+    \begin{frame}{Log}{Die Historie}
           \begin{itemize}[<+->]
             \item Keinen überblick über Dateien, die schon committed sind
             \item git weiß es
@@ -370,29 +370,67 @@
 
   \section[Teilen]{Teilen von Arbeit}
 
-    \begin{frame}{Push - Arbeit auf einen Server laden}
-      \begin{columns}
-        \column{0.5\textwidth}
+
+
+    \begin{frame}{Push}{Arbeit auf einen Server laden}
+        \begin{columns}
+          \column{0.5\textwidth}
+            \begin{itemize}[<+->]
+              \item Lokal gespeichert im Baum
+              \item Mit mehreren Teilen
+              \item<.->[$\rightarrow$] Auf einen Server hosten
+              \item \textit{GitHub, GitLab, Bitbucket}
+            \end{itemize}
+            \onslide<+->{
+              \begin{block}{Command}
+                \texttt{git push}
+              \end{block}
+            }
+          \column{0.4\textwidth}
+            \onslide<+->{
+              \begin{figure}
+                \includegraphics[width=.9\columnwidth]{centralized_workflow}
+                \caption{Zentral gehostete git Repository \tiny\url{git-scm.com/book/en/v2/images/centralized_workflow.png}, 08.05.2018}
+              \end{figure}
+            }
+        \end{columns}
+      \end{frame}
+
+      \begin{frame}{Pull}{Arbeit von einem Server laden}
+        \begin{columns}
+          \column{0.5\textwidth}
           \begin{itemize}[<+->]
-            \item Lokal gespeichert im Baum
-            \item Mit mehreren Teilen
-            \item<.->[$\rightarrow$] Auf einen Server hosten
-            \item \textit{GitHub, GitLab, Bitbucket}
+            \item Veränderungen auf dem Server
+            \item Herunterladen gibt einem die Änderungen von anderen
           \end{itemize}
           \onslide<+->{
-            \begin{block}{Command}
-              \texttt{git push}
-            \end{block}
+          \begin{block}{Command}
+            \texttt{git pull "<remote">}
+          \end{block}
           }
-        \column{0.4\textwidth}
+          \column{0.4\textwidth}
           \onslide<+->{
-            \begin{figure}
-              \includegraphics[width=.9\columnwidth]{centralized_workflow}
-              \caption{Zentral gehostete git Repository \tiny\url{git-scm.com/book/en/v2/images/centralized_workflow.png}, 08.05.2018}
-            \end{figure}
+          \begin{figure}
+            \includegraphics[width=.9\columnwidth]{branch-different}
+            \caption{Zentral gehostete git Repository \tiny\url{git-scm.com/book/en/v2/images/centralized_workflow.png}, 08.05.2018}
+          \end{figure}
           }
-      \end{columns}
-    \end{frame}
+        \end{columns}
+      \end{frame}
 
+    \section{Git als Nutzer}
+
+      \begin{frame}{Daten von einem Server laden}
+        \begin{columns}
+          \column{0.7\textwidth}
+            \begin{itemize}[<+->]
+              \item Kommandozeile $\rightarrow$ teilweise schwer
+              \item Git auch als \textbf{Gui} erhältlich
+            \end{itemize}
+
+          \column{0.3\textwidth}
+            \includegraphics[width=0.9\columnwidth]{git}
+        \end{columns}
+      \end{frame}
 
 \end{document}
